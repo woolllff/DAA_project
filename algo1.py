@@ -1,3 +1,6 @@
+
+# this is an O(nlog(n)) ago as sorting takes the most time 
+
 n = 4
 a = [8,5,3,6,2,5,8,9]
 b = [4,3,6,8,5,4,6,3]
