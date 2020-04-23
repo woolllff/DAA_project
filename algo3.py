@@ -2,24 +2,9 @@
 import random 
 
 def partialSort(arr, l, r, k):
-    n = r - l + 1
-    if (k > 0 and k <= r - l + 1):
-        a = 0
-        medians = []
-        for i in range(0, n//5 , 5):
-            medians.append(getMedian(arr, l + i, 5))	#Dividing the array into groups of 5 and finding their respective medians
-            a += 1
-        if (a * 5 < n):					#Last group may have less than 5 elements
-            medians.append(getMedian(arr, a*5+l, n%5))
-            a += 1
+    if (k > 0 and k <= r - l + 1): 
 
-
-        if (a == 1):					#Recursively finding the median of medians obtained from the groups
-            m = medians[0]
-        else:
-            m = partialSort(medians, 0, a-1, a//2) 
-
-        pos = Partition(arr, l, r, m) 			#Partitioning the array using this median of medians as pivot
+        pos = selectPartition(arr, l, r, medianofMedians(arr, l, r, k)) 			#Partitioning the array using this median of medians as pivot
 
         if (pos - l == k - 1): 
             return
@@ -42,9 +27,29 @@ def getMedian(arr, l, n):
     temp.sort()
     return temp[mid]
 
-def Partition(arr, l, r, x): 
+def medianofMedians(arr, l, r, x):
+    n = r - l + 1
+    a = 0
+    medians = []
+    for i in range(0, n//5 , 5):
+        medians.append(getMedian(arr, l + i, 5))	#Dividing the array into groups of 5 and finding their respective medians
+        a += 1
+    if (a * 5 < n):					#Last group may have less than 5 elements
+        medians.append(getMedian(arr, a*5 + l, n%5))
+        a += 1
+
+
+    if (a == 1):					#Recursively finding the median of medians obtained from the groups
+        m = medians[0]
+    else:
+        m = medianofMedians(medians, 0, a-1, a//2)
+
+    return m
+    
+
+def selectPartition(arr, l, r, m): 
     for i in range(l, r):
-        if arr[i] == x:
+        if arr[i] == m:
             swap(arr, r, i)
             break
     x = arr[r][0]
@@ -54,7 +59,7 @@ def Partition(arr, l, r, x):
             swap(arr, i, j) 
             i += 1
     swap(arr, i, r) 
-    return i
+    return i 
 
 
 # this is an worst case O(n) algo, using partial sort gives us the sorted list such that the nth smallest element is in the correct pos 
