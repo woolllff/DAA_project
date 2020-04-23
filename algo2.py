@@ -1,3 +1,5 @@
+# this is an average O(n) algo worst case is O(n^2), using partial sort gives us the sorted list such that the nth smallest element is in the correct pos 
+
 import random 
 
 def partialSort(arr, l, r, k): 
@@ -32,9 +34,6 @@ def randomPartition(arr, l, r):
 	swap(arr, i, r) 
 	return i 
 
-
-
-# this is an average O(n) algo , using partial sort gives us the sorted list such that the nth smallest element is in the correct pos 
 
 
 n = 4

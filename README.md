@@ -14,3 +14,12 @@ Sort C WRT the diffrence
 Then the first n elements are taken from B referencing through C[i][1] and the next n elements are taken from A.
 
 </p>
+
+### Proof
+<p>
+
+The diffrence array C tells us if we take the element in A instead of B at the same index, then by how much the sum  will increase.
+
+So we just find the n greatest elements in the C array, that will give us the index of the elements we have to take from A and the rest will be taken from B. 
+
+</p>
