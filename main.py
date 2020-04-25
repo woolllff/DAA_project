@@ -6,7 +6,7 @@ import algo2 as algo3
 
 f= open("testCases/testcase.txt","r")
 
-f2 = open("testCases/falsetestcase.txt","w")
+#f2 = open("testCases/falsetestcase.txt","w")
 
 contents = f.readlines()
 #print(contents)
@@ -23,17 +23,19 @@ for i in range(int(len(contents)/4)):
 
     ans2 = algo3.makebetterhalf(a,b,n)
 
-    if (ans != ans2):
-        print(n,'\n',a,'\n',b,'\n',ans,'\n',ans2)
-        l = [str(n) +"\n",str(a)+"\n",str(b)+"\n",str(ans)+"\n",str(ans2)+'\n']
-        for i in l:
-            f2.write(i)
-        c = []
-        for i in range(len(a)):
-            c.append(a[i]-b[i])
-        c.sort()
-        print(c)
+    print( ans == ans2)
+
+    # if (ans != ans2):
+    #     print(n,'\n',a,'\n',b,'\n',ans,'\n',ans2)
+    #     l = [str(n) +"\n",str(a)+"\n",str(b)+"\n",str(ans)+"\n",str(ans2)+'\n']
+    #     for i in l:
+    #         f2.write(i)
+    #     c = []
+    #     for i in range(len(a)):
+    #         c.append(a[i]-b[i])
+    #     c.sort()
+    #     print(c)
 
 
 f.close()
-f2.close()
+#f2.close()
