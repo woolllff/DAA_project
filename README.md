@@ -18,11 +18,11 @@ We instead use partial sort which sorts the array such that any element precedin
 
 ### Pseudo Codes:
 ##### Algo1
+<p>
+    
     Make an array C such as.
-    C<sub>i</sub> = (A<sub>i</sub> - B<sub>i</sub> , i )
-
+    C[i] = (A[i] - B[i] , i )
     Sort C WRT the diffrence 
-
     Then the first n elements are taken from B referencing through C[i][1] and the next n elements are taken from A.
 </p>
 
