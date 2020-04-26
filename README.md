@@ -18,13 +18,12 @@ We instead use partial sort which sorts the array such that any element precedin
 
 ### Pseudo Codes:
 ##### Algo1
-<p>
-Make an array C such as.
-C<sub>i</sub> = (A<sub>i</sub> - B<sub>i</sub> , i )
-<br>
-Sort C WRT the diffrence 
-<br>
-Then the first n elements are taken from B referencing through C[i][1] and the next n elements are taken from A.
+    Make an array C such as.
+    C<sub>i</sub> = (A<sub>i</sub> - B<sub>i</sub> , i )
+
+    Sort C WRT the diffrence 
+
+    Then the first n elements are taken from B referencing through C[i][1] and the next n elements are taken from A.
 </p>
 
 ##### Algo2
@@ -118,7 +117,7 @@ Now if we subtract a constant from every half-set we still have sum(ans) as maxi
 Let us take the constant to be sum(B)<br>
 So the maximum sum is given by, sum(ans) - sum(B) == sum(ans[i] - B[i]).<br>
 This in turn is sum(n0's + nC[i])<br>
-So we need to take the sum of the n greatest C[i].
+So we need to find the n greatest C[i].
 </p>
 
 ### Data-structures used:
@@ -134,5 +133,5 @@ Run main.py using python3.6 (or above). It outputs a tuple which states if the a
 https://www.youtube.com/watch?v=fcf56RTbkHc&feature=youtu.be for median of medians.<br>
 Referred class notes for Quick Sort.
 ### Contributions:
-##### Utkarsh Agarwal(IMT2018082): Proof of correctness, documentation, test cases and implementation of codes
+##### Utkarsh Agarwal(IMT2018082): Proof of correctness, documentation, test cases and implementation of codes, Time Complexity calculation.
 ##### Neetha Reddy(IMT2018050): Pseudo codes and documentation
