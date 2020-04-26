@@ -1,12 +1,12 @@
 import random
 import numpy as np 
 import json
-import algo2 as algo3
+import algo3 as algo3
 
 
 f= open("testCases/testcase.txt","r")
 
-#f2 = open("testCases/falsetestcase.txt","w")
+#f2 = open("testCases/falsetestcase.txt","a")
 
 contents = f.readlines()
 #print(contents)

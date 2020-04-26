@@ -1,53 +1,53 @@
 
 import random 
 
-def partialSort(arr, l, r, k):
-    if (k > 0 and k <= r - l + 1): 
+def partialSort(arr, l, r, k): 
+	
+	if (k > 0 and k <= r - l + 1): 
+		
+		pos = selectPartition(arr, l, r) 
 
-        pos = selectPartition(arr, l, r, medianofMedians(arr, l, r, k)) 			#Partitioning the array using this median of medians as pivot
+		if (pos - l == k - 1): 
+			return
+		if (pos - l > k - 1): 
+			return partialSort(arr, l, pos - 1, k) 
+		return partialSort(arr, pos + 1, r, k - pos + l - 1) 
 
-        if (pos - l == k - 1): 
-            return
-        if (pos - l > k - 1): 
-            return partialSort(arr, l, pos - 1, k) 
-        return partialSort(arr, pos + 1, r, k - pos + l - 1) 
+	return 999999999999
 
-    return 999999999999
 
 def swap(arr, a, b): 
 	temp = arr[a] 
 	arr[a] = arr[b] 
 	arr[b] = temp
 
-def getMedian(arr, l, n):
-    temp = []
-    mid = n//2
-    for i in range(l, l+n):
-        temp.append(arr[i])
-    temp.sort()
-    return temp[mid]
+def MOM(arr,s,e):
 
-def medianofMedians(arr, l, r, x):
-    n = r - l + 1
-    a = 0
-    medians = []
-    for i in range(0, n//5 , 5):
-        medians.append(getMedian(arr, l + i, 5))	#Dividing the array into groups of 5 and finding their respective medians
-        a += 1
-    if (a * 5 < n):					#Last group may have less than 5 elements
-        medians.append(getMedian(arr, a*5 + l, n%5))
-        a += 1
-
-
-    if (a == 1):					#Recursively finding the median of medians obtained from the groups
-        m = medians[0]
+    if(e-s +1 <= 5):
+        temp = arr[s:e+1]
+        temp.sort()
+        return temp[int((len(temp)-1)/2)]
     else:
-        m = medianofMedians(medians, 0, a-1, a//2)
+        m = []
+        l = range(s,e - e%5,5)
+        for i in l:
+            temp = arr[i:i+5]
+            temp.sort()
+            #print(temp,i)
+            m.append(temp[2])
+        i = l[len(l) -1]
+        if ( i+5 <= e):
+            temp = arr[i+5:e+1]
+            temp.sort()
+            #print(temp)
+            m.append(temp[int((len(temp)-1)/2)])
 
-    return m
-    
+        #print(m)
+        return MOM(m,0,len(m)-1)
 
-def selectPartition(arr, l, r, m): 
+
+def selectPartition(arr, l, r):
+    m = MOM(arr,l,r)
     for i in range(l, r):
         if arr[i] == m:
             swap(arr, r, i)

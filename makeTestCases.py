@@ -11,7 +11,7 @@ f= open("testCases/testcase.txt","a")
 
 for i in range(100):
 
-    n = 20
+    n = random.randint(0,50)
     a = list(np.random.randint(1000, size = 2*n))
     b = list(np.random.randint(1000, size = 2*n))
     ans = algo1.makeBetterHalf(a,b,n)
