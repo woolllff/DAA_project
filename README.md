@@ -135,4 +135,4 @@ https://www.youtube.com/watch?v=fcf56RTbkHc&feature=youtu.be for median of media
 Referred class notes for Quick Sort.
 ### Contributions:
 ##### Utkarsh Agarwal(IMT2018082): Proof of correctness, documentation, test cases and implementation of codes
-##### Neetha Reddy(IMT2018050): Pseudo codes, documentation and implementation of codes
+##### Neetha Reddy(IMT2018050): Pseudo codes and documentation
