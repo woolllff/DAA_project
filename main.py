@@ -23,7 +23,7 @@ for i in range(int(len(contents)/4)):
 
     ans2 = algo3.makebetterhalf(a,b,n)
 
-    print( ans == ans2)
+    print(( ans == ans2 , sum(ans) == sum(ans2)))
 
     # if (ans != ans2):
     #     print(n,'\n',a,'\n',b,'\n',ans,'\n',ans2)
