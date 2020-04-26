@@ -26,6 +26,7 @@ Sort C WRT the diffrence
 <br>
 Then the first n elements are taken from B referencing through C[i][1] and the next n elements are taken from A.
 </p>
+
 ##### Algo2
 <p>
 
@@ -102,6 +103,7 @@ Partialsort is a recursive algo. by using Median of median we can eliminate atle
 
     n + n/r + n/r^2 + ...... 1 = n( 1 + 1/r + 1/r^2 + .... ) = n/(1-1/r) = O(n)
 </p>
+
 #### Proof Of Corretness:
 <p>
 Lets say the ans is some halfset, and given sum(ans) is max.
